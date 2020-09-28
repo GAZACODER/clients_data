@@ -1,9 +1,10 @@
 import React from 'react';
+import InputText from './components/TextInput';
 
 import './App.css';
 
 const App = () => {
-  return <div className="App"></div>;
+  return <InputText />;
 };
 
 export default App;
