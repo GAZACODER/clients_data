@@ -1,0 +1,31 @@
+.table__todo {
+  font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4caf50;
+  color: white;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.table__todo td, .table__todo th {
+  border: 1px solid #ddd;
+  padding: 0.7rem 2rem;
+}
+
+.table__todo tr:nth-child(even) {
+  background-color: #f2f2f2;
+  color: black;
+}
+
+.table__todo__delete__btn {
+  background-color: indianred;
+  padding: 0.3rem 1rem;
+}
+
+.table__todo__edit__btn {
+  background-color: greenyellow;
+  padding: 0.3rem 1rem;
+}
