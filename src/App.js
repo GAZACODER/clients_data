@@ -4,6 +4,7 @@ import InputText from './components/TextInput';
 import './App.css';
 
 const App = () => {
+  const x = 10;
   return <InputText />;
 };
 
