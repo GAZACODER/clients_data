@@ -1,6 +1,13 @@
+.container {
+  width: 50%;
+  margin: 0 auto;
+}
+
 .Text__input__form {
   display: flex;
-  justify-content: center;
+
+  justify-content: space-between;
+  align-items: center;
   margin-top: 3rem;
 }
 

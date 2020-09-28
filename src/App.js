@@ -8,21 +8,32 @@ const App = () => {
   const [LastName, setLastName] = useState();
   const [age, setAge] = useState();
 
+  const handelClick = () => {};
+
   return (
-    <form className="Text__input__form">
-      <InputText
-        placeholder="enter first name "
-        value={firstName}
-        change={setFirstName}
-      />
-      <InputText
-        placeholder="enter last name "
-        value={LastName}
-        change={setLastName}
-      />
-      <InputText placeholder="enter age " value={age} change={setAge} />
-      <button className="form__layout__button">submit</button>
-    </form>
+    <div className="container">
+      <form className="Text__input__form">
+        <InputText
+          placeholder="enter first name "
+          value={firstName}
+          change={setFirstName}
+        />
+        <InputText
+          placeholder="enter last name "
+          value={LastName}
+          change={setLastName}
+        />
+        <InputText
+          type="number"
+          placeholder="enter age "
+          value={age}
+          change={setAge}
+        />
+        <button className="form__layout__button" onClick={() => handelClick()}>
+          submit
+        </button>
+      </form>
+    </div>
   );
 };
 
