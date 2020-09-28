@@ -1,5 +1,5 @@
 {
   "editor.formatOnSave": true,
-  "javascript.preferences.quoteStyle": "single",
+  "prettier.singleQuote": true,
   "editor.tabSize": 2
 }
