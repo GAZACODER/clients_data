@@ -1,5 +1,8 @@
-.table__todo {
+* {
   font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+}
+
+.table__todo {
   border-collapse: collapse;
   padding-top: 12px;
   padding-bottom: 12px;

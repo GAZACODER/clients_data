@@ -13,7 +13,7 @@ const Table = ({ data }) => {
           <th>last name</th>
           <th>age</th>
           <th>delete</th>
-          <th>edit</th>
+          <th colspan="5">edit</th>
         </tr>
 
         {data &&
