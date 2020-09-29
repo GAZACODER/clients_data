@@ -17,11 +17,11 @@ const Table = ({ data }) => {
         </tr>
 
         {data &&
-          data.map(({ firstName, lastName, age }, index) => (
+          data.map(({ firstName, LastName, age }, index) => (
             <tr>
               <td>{index + 1}</td>
               <td>{firstName}</td>
-              <td> {lastName}</td>
+              <td> {LastName}</td>
               <td>{age}</td>
               <td>
                 <button
