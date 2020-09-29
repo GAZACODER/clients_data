@@ -13,7 +13,8 @@
   width: 100%;
 }
 
-.table__todo td, .table__todo th {
+.table__todo td,
+.table__todo th {
   border: 1px solid #ddd;
   padding: 0.7rem 2rem;
 }
