@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.css';
+import StorageData from '../../utils/LocalStorage';
 
 const Table = ({ data }) => {
-  const handelDelete = () => {};
+  const handelDelete = (i) => {
+    console.log(i);
+    data.splice(i, 1);
+    StorageData.AddLocal(data);
+  };
+
   const handelEdit = () => {};
   return (
     <div>
@@ -25,7 +31,7 @@ const Table = ({ data }) => {
               <td>{age}</td>
               <td>
                 <button
-                  onClick={() => handelDelete()}
+                  onClick={() => handelDelete(index)}
                   className="table__todo__delete__btn"
                 >
                   delete
