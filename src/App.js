@@ -27,29 +27,29 @@ const App = () => {
   };
 
   return (
-    <div className="container">
-      <div className="container__form">
+    <div className='container'>
+      <div className='container__form'>
         <InputText
-          placeholder="enter first name "
+          placeholder='enter first name '
           value={firstName}
           change={setFirstName}
         />
         <InputText
-          placeholder="enter last name "
+          placeholder='enter last name '
           value={LastName}
           change={setLastName}
         />
         <InputText
-          type="number"
-          placeholder="enter age "
+          type='number'
+          placeholder='enter age '
           value={age}
           change={setAge}
         />
-        <button className="form__layout__button" onClick={() => handelClick()}>
+        <button className='form__layout__button' onClick={() => handelClick()}>
           submit
         </button>
       </div>
-      <Table data={data} />
+      <Table data={data} changeData={(newData) => setData(newData)} />
     </div>
   );
 };

@@ -1,30 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import StorageData from '../../utils/LocalStorage';
 
-const Table = ({ data }) => {
+let newData = [];
+const Table = ({ data, changeData }) => {
   const handelDelete = (i) => {
-    console.log(i);
-    data.splice(i, 1);
-    StorageData.AddLocal(data);
+    newData = data.filter((x, index) => index !== i);
+    changeData(newData);
+    StorageData.AddLocal(newData);
   };
 
   const handelEdit = () => {};
   return (
     <div>
-      <table className="table__todo">
+      <table className='table__todo'>
         <tr>
           <th>num </th>
           <th>first name</th>
           <th>last name</th>
           <th>age</th>
           <th>delete</th>
-          <th colspan="5">edit</th>
+          <th>edit</th>
         </tr>
 
         {data &&
           data.map(({ firstName, LastName, age }, index) => (
-            <tr>
+            <tr key={index}>
               <td>{index + 1}</td>
               <td>{firstName}</td>
               <td> {LastName}</td>
@@ -32,7 +33,7 @@ const Table = ({ data }) => {
               <td>
                 <button
                   onClick={() => handelDelete(index)}
-                  className="table__todo__delete__btn"
+                  className='table__todo__delete__btn'
                 >
                   delete
                 </button>
@@ -40,7 +41,7 @@ const Table = ({ data }) => {
               <td>
                 <button
                   onClick={() => handelEdit()}
-                  className="table__todo__edit__btn"
+                  className='table__todo__edit__btn'
                 >
                   edit
                 </button>
