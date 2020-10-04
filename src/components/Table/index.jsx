@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css';
+import StorageData from '../../utils/LocalStorage';
+import SweetAlert from '../../utils/SweetAlert';
 
-const Table = ({ data }) => {
-  const handelDelete = () => {};
+let newData = [];
+const Table = ({ data, changeData }) => {
+  const handelDelete = (i) => {
+    SweetAlert.ConfirmWithAlert(() => {
+      newData = data.filter((x, index) => index !== i);
+      changeData(newData);
+      StorageData.AddLocal(newData);
+    }, 'warning');
+  };
+
   const handelEdit = () => {};
   return (
     <div>
@@ -13,19 +23,19 @@ const Table = ({ data }) => {
           <th>last name</th>
           <th>age</th>
           <th>delete</th>
-          <th colspan="5">edit</th>
+          <th>edit</th>
         </tr>
 
         {data &&
           data.map(({ firstName, LastName, age }, index) => (
-            <tr>
+            <tr key={index}>
               <td>{index + 1}</td>
               <td>{firstName}</td>
               <td> {LastName}</td>
               <td>{age}</td>
               <td>
                 <button
-                  onClick={() => handelDelete()}
+                  onClick={() => handelDelete(index)}
                   className="table__todo__delete__btn"
                 >
                   delete

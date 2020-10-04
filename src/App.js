@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import InputText from './components/TextInput';
 import StorageData from './utils/LocalStorage';
-import Swal from 'sweetalert2';
 
+import SweetAlert from './utils/SweetAlert';
 import './App.css';
 import Table from './components/Table';
 
@@ -13,14 +13,9 @@ const App = () => {
   const [data, setData] = useState(StorageData.GetLocal() || []);
 
   const handelClick = () => {
-    if (!firstName || !LastName || !age)
-      Swal.fire({
-        title: 'Error!',
-        text: 'Check data please',
-        icon: 'error',
-        confirmButtonText: 'OK',
-      });
-    else {
+    if (!firstName || !LastName || !age) {
+      SweetAlert.GetAlert('Check data please', 'OK', 'Error!');
+    } else {
       setData([...data, { firstName, LastName, age }]);
       StorageData.AddLocal([...data, { firstName, LastName, age }]);
     }
@@ -49,7 +44,7 @@ const App = () => {
           submit
         </button>
       </div>
-      <Table data={data} />
+      <Table data={data} changeData={(newData) => setData(newData)} />
     </div>
   );
 };
