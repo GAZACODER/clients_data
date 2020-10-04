@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 import './style.css';
 import StorageData from '../../utils/LocalStorage';
+import SweetAlert from '../../utils/SweetAlert';
 
 let newData = [];
 const Table = ({ data, changeData }) => {
   const handelDelete = (i) => {
-    newData = data.filter((x, index) => index !== i);
-    changeData(newData);
-    StorageData.AddLocal(newData);
+    SweetAlert.ConfirmWithAlert(() => {
+      newData = data.filter((x, index) => index !== i);
+      changeData(newData);
+      StorageData.AddLocal(newData);
+    }, 'warning');
   };
 
   const handelEdit = () => {};
   return (
     <div>
-      <table className='table__todo'>
+      <table className="table__todo">
         <tr>
           <th>num </th>
           <th>first name</th>
@@ -33,7 +36,7 @@ const Table = ({ data, changeData }) => {
               <td>
                 <button
                   onClick={() => handelDelete(index)}
-                  className='table__todo__delete__btn'
+                  className="table__todo__delete__btn"
                 >
                   delete
                 </button>
@@ -41,7 +44,7 @@ const Table = ({ data, changeData }) => {
               <td>
                 <button
                   onClick={() => handelEdit()}
-                  className='table__todo__edit__btn'
+                  className="table__todo__edit__btn"
                 >
                   edit
                 </button>
