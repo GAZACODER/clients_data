@@ -16,8 +16,25 @@ const App = () => {
     if (!firstName || !LastName || !age) {
       SweetAlert.GetAlert('Check data please', 'OK', 'Error!');
     } else {
-      setData([...data, { firstName, LastName, age }]);
-      StorageData.AddLocal([...data, { firstName, LastName, age }]);
+      setData([
+        ...data,
+        {
+          id: data.length > 0 ? data[data.length - 1].id + 1 : 0,
+          firstName,
+          LastName,
+          age,
+        },
+      ]);
+
+      StorageData.AddLocal([
+        ...data,
+        {
+          id: data.length > 0 ? data[data.length - 1].id + 1 : 0,
+          firstName,
+          LastName,
+          age,
+        },
+      ]);
     }
   };
 
