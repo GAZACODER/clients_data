@@ -12,6 +12,7 @@ const App = () => {
   const [age, setAge] = useState();
   const [data, setData] = useState(StorageData.GetLocal() || []);
 
+
   const handelClick = () => {
     if (!firstName || !LastName || !age) {
       SweetAlert.GetAlert('Check data please', 'OK', 'Error!');
